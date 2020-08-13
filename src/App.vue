@@ -1,12 +1,23 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-content transition="slide-x-transition">
+      <Navigation />
+      <router-view />
+    </v-content>
+  </v-app>
 </template>
+
+<script>
+// @ is an alias to /src
+import Navigation from "@/components/Navigation";
+
+export default {
+  name: "App",
+  components: {
+    Navigation
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
