@@ -1,41 +1,71 @@
 <template>
   <div>
-    <v-app-bar color="#FFA726" dense dark>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-navigation-drawer app v-model="drawer" class="orange lighten-2" dark disable-resize-watcher>
+        <v-list
+        nav
+        dense
+      >
+        <v-list-item-group v-model="item" color="secondary">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+          >
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+        </v-navigation-drawer>
+    
+    <v-app-bar height="150px" app color="#F57F17" dense dark shrink-on-scroll
+      src="https://images.unsplash.com/photo-1570120090708-6014886db15d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80"
+      fade-img-on-scroll 
+      >
 
-      <v-toolbar-title>Page title</v-toolbar-title>
+ <v-app-bar-nav-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-spacer class="hidden-md-and-up"></v-spacer>
+      <v-toolbar-title>{{appTitle}}</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
+    <v-btn class="hidden-sm-and-down" text>Accueil</v-btn>
+    <v-btn class="hidden-sm-and-down" text>Contact</v-btn>
+    <v-btn class="hidden-sm-and-down" text>Galerie</v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-menu left bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </template>
-
-        <v-list>
-          <v-list-item v-for="n in 5" :key="n" @click="() => {}">
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      
     </v-app-bar>
+    
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "Navigation"
+  name: "Navigation",
+  data() {
+        return {
+            appTitle: 'JESSE',
+            drawer: false,
+            item: 0,
+            items: [
+                { title: 'Accueil' },
+                { title: 'Contact' },
+                { title: 'Galerie' }
+            ]
+        };
+    }
 };
 </script>
 
-<style scoped></style>
+<style lang='scss' scoped>
+    button{
+        margin-top: 10px !important;
+    }
+
+    #logo{
+        height: 178px;
+        margin-top: 201px;
+    }
+
+</style>
