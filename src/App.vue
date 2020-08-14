@@ -1,9 +1,11 @@
 <template>
   <v-app>
-    <v-content transition="slide-x-transition">
       <Navigation />
-      <router-view />
-    </v-content>
+  <v-main>
+    <router-view />
+  </v-main>
+      
+  
   </v-app>
 </template>
 
@@ -11,10 +13,12 @@
 // @ is an alias to /src
 import Navigation from "@/components/Navigation";
 
+
 export default {
   name: "App",
   components: {
-    Navigation
+    Navigation,
+    
   }
 };
 </script>
