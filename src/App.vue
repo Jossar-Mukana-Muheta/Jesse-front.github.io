@@ -1,24 +1,23 @@
 <template>
   <v-app>
-      <Navigation />
-  <v-main>
-    <router-view />
-  </v-main>
-      
-  
+    <TheNavbar />
+    <v-main>
+      <router-view />
+    </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 // @ is an alias to /src
-import Navigation from "@/components/Navigation";
-
+import TheNavbar from "@/components/TheNavbar";
+import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
-    Navigation,
-    
+    TheNavbar,
+    Footer
   }
 };
 </script>
