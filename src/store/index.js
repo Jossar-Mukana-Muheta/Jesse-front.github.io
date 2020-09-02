@@ -2,9 +2,9 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 Vue.prototype.$axios = axios;
-const baseURL = "http://localhost:3000/";
+const baseURL = "https://jesse-api.herokuapp.com/";
 
-import authHeader from "../auth/auth-header";
+//import authHeader from "../auth/auth-header";
 axios.defaults.withCredentials = true;
 
 Vue.use(Vuex);
@@ -201,7 +201,7 @@ export default new Vuex.Store({
 
     // Supprimer un événement
     deleteOneEvent({ dispatch }, id) {
-      console.log(id);
+    
       const config = {
         method: "delete",
         url: baseURL + "api/events/:",
@@ -233,18 +233,18 @@ export default new Vuex.Store({
     },
 
     // Créer un projet
-    CreateOneProjet({ dispatch }, projet) {
-      axios
-        .post(
-          baseURL + "api/projets/",
-          {
-            title: projet.title,
-            description: projet.description,
-            date: projet.date,
-            url: projet.url
-          },
-          { headers: authHeader() }
-        )
+    CreateOneProjet({ dispatch }, formData) {
+
+      const config = {
+        method: "post",
+        url: baseURL + "api/projets/",
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+        data: formData
+      };
+
+      axios(config)
         .then(() => {
           dispatch("getAllProjet");
         })
@@ -255,14 +255,16 @@ export default new Vuex.Store({
 
     // Supprimer un projet
     deleteOneProjet({ dispatch }, id) {
-      axios
-        .delete(
-          baseURL + "api/projets/:",
-          {
-            id
-          },
-          { headers: authHeader() }
-        )
+
+      const config = {
+        method: "delete",
+        url: baseURL + "api/projets/:",
+        data: {
+          id: id
+        }
+      };
+
+      axios(config)
         .then(() => {
           dispatch("getAllProjet");
         })

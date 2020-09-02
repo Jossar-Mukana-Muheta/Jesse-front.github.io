@@ -92,10 +92,11 @@ export default {
       formData.append("image", this.file);
       formData.append("event", JSON.stringify(event));
 
-      console.log(formData.get("event"));
-      console.log(formData.get("image"));
+      
 
-      this.$store.dispatch("CreateOneEvent", formData).then(() => {});
+      this.$store.dispatch("CreateOneEvent", formData).then(() => {
+        this.reset();
+      });
     },
 
     reset() {

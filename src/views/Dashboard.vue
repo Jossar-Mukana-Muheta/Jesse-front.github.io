@@ -35,25 +35,25 @@
       <div id="admin-container">
         <div id="admin-actualites">
           <h2>Liste de vos événements</h2>
+          <div class="container_actualites">
           <div class="items_actualites">
             <v-card dark v-for="(item_event, i) in event" :key="i" class="card">
               <div
                 class="d-flex flex-column align-content-center flex-wrap justify-space-around"
               >
                 <div>
-                  <v-card-title
-                    class="headline"
+                  <h5
                     v-text="item_event.title"
-                  ></v-card-title>
+                  ></h5>
 
-                  <v-card-subtitle
+                  <p
                     v-text="item_event.soustitle"
-                  ></v-card-subtitle>
+                  ></p>
                   <v-spacer></v-spacer>
                   <p>{{ item_event.texte }}</p>
                 </div>
 
-                <v-avatar class="ma-3" size="125" tile>
+                <v-avatar class="ma-3" size="70" tile>
                   <v-img :src="item_event.imageUrl"></v-img>
                 </v-avatar>
                 <div class="my-2">
@@ -67,27 +67,29 @@
               </div>
             </v-card>
           </div>
-          <div>
+          <div class="container_formulaire">
             <h2>Ajouter un évenement</h2>
             <div class="container_formEvent">
               <FormAdmin />
             </div>
           </div>
         </div>
+        </div>
         <div id="admin-projets">
-          <h2>Projets</h2>
+          <h2>Liste de vos Projets</h2>
+          <div class="container_projet">
+            <div class="item_projets">
           <v-col v-for="(itemProjet, x) in projet" :key="x" cols="3">
             <v-card dark>
               <div class="d-flex flex-wrap justify-space-around">
                 <div>
-                  <v-card-title
-                    class="headline"
+                  <h5
                     v-text="itemProjet.title"
-                  ></v-card-title>
+                  ></h5>
 
-                  <v-card-subtitle
+                  <p
                     v-text="itemProjet.description"
-                  ></v-card-subtitle>
+                  ></p>
                   <v-spacer></v-spacer>
                   <p>{{ itemProjet.date }}</p>
                 </div>
@@ -106,9 +108,13 @@
               </div>
             </v-card>
           </v-col>
-          <div>
+          </div>
+          <div class="container_formulaire2">
             <h2>Ajouter un projet</h2>
+            <div class="container_formEvent">
             <ProjetForm />
+            </div>
+          </div>
           </div>
         </div>
         <div class="galerie_container">
@@ -180,6 +186,11 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/main.scss";
 
+p{
+  font-size: 13px;
+  margin: 0px;
+}
+
 .container_page {
   display: flex;
   flex-wrap: nowrap;
@@ -200,6 +211,10 @@ export default {
   }
 }
 
+.container_actualites,.container_projet{
+  display: flex;
+}
+
 h1,
 h2 {
   margin: 50px;
@@ -210,22 +225,50 @@ h2 {
   flex-direction: column;
   align-content: center;
 }
-.items_actualites {
+.items_actualites,.item_projets {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  width: 60%;
 
   .card {
-    margin: 10px;
+    margin: 5px;
     @include desktop {
-      width: 30%;
-      margin: 20px;
+      width: 40%;
+      height: 300px;
+      
     }
   }
 
   .container_formEvent {
     display: flex;
     justify-content: center;
+    margin: 30px !important;
   }
 }
+
+.container_formulaire,.container_formulaire2{
+  width: 40%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: $gray-apple;
+  padding: 5px;
+  margin: 5px;
+}
+
+#admin-actualites > div > div.container_formulaire > div{
+  margin: 30px;
+}
+
+#admin-projets > div > div.container_formulaire2 > div{
+  margin: 30%;
+}
+.galerie_container{
+  input{
+    margin: 30px !important;
+  }
+}
+
+
+
 </style>

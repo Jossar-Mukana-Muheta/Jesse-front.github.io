@@ -28,11 +28,7 @@
         ></v-textarea>
       </v-col>
 
-      <v-file-input
-        label="Ajouter une Photo"
-        filled
-        prepend-icon="mdi-camera"
-      ></v-file-input>
+      <input type="file" ref="uploadBtn" @change="loadFile" />
 
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
         Valider
@@ -72,23 +68,32 @@ export default {
           (v && v.length <= 400) ||
           "Le titre ne doit pas dépasser 400 caractères."
       ],
-      url:
-        "https://trello-attachments.s3.amazonaws.com/5ecaa717b0402111e8f281c9/960x720/02097c29d88bbd2eeec3757c0c29f9f1/WhatsApp_Image_2020-05-22_at_11.32.21-4.jpeg.jpg",
+      file:"",
       checkbox: false
     };
   },
 
   methods: {
+
+     loadFile() {
+      this.file = this.$refs.uploadBtn.files[0];
+    },
+
     validate() {
-      // Création objet événement
+      // Création objet projet
       let projet = {
         title: this.titre,
         description: this.description,
         date: this.date,
-        url: this.url
       };
 
-      this.$store.dispatch("CreateOneProjet", projet).then(() => {
+      let formData = new FormData();
+
+      formData.append("image", this.file);
+      formData.append("projet", JSON.stringify(projet));
+
+
+      this.$store.dispatch("CreateOneProjet", formData).then(() => {
         this.reset();
       });
     },

@@ -89,4 +89,8 @@ export default {
     width: 24vw;
   }
 }
+
+input{
+  margin: 30px;
+}
 </style>

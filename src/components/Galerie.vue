@@ -157,6 +157,20 @@ export default {
   display: flex;
   flex-direction: column;
 
+  button{
+
+    @include desktop{
+      height: 70px !important;
+      width: 70px !important;
+    }
+
+    
+  }
+
+  @include desktop {
+    left: 45%;
+  }
+
   &:hover h3 {
     opacity: 1;
   }
