@@ -90,7 +90,7 @@ export default {
   }
 }
 
-input{
+input {
   margin: 30px;
 }
 </style>

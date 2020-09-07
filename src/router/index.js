@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+let user = JSON.parse(localStorage.getItem("user"));
 
 Vue.use(VueRouter);
 
@@ -25,7 +26,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (Home.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "Home" */ "../views/ContactPage.vue")
+    component: () =>
+      import(/* webpackChunkName: "Home" */ "../views/ContactPage.vue")
   },
   {
     path: "/GaleriePage",
@@ -53,8 +55,8 @@ const routes = [
     // this generates a separate chunk (Dashboard.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "Dashboard" */ "../views/Dashboard.vue")
-    //meta: { requiresAuth: true }
+      import(/* webpackChunkName: "Dashboard" */ "../views/Dashboard.vue"),
+    meta: { requiresAuth: true }
   }
 ];
 
@@ -65,17 +67,12 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const publicPages = [
-    "/Login",
-    "/GaleriePage/:id",
-    "/Home, /galerie, /contact"
-  ];
-  const authRequired = !publicPages.includes(to.path);
+  const authenticatedUser = user;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-  const loggedIn = localStorage.getItem("user");
-  if (authRequired && !loggedIn) {
-    next("/Login");
-  } else {
+  // Check for protected route
+  if (requiresAuth && !authenticatedUser) next("Login");
+  else {
     next();
   }
 });

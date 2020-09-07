@@ -11,7 +11,7 @@
       <p>{{ titre }}</p>
       <v-text-field
         v-model="soustitre"
-        :counter="30"
+        :counter="45"
         :rules="soustitreRules"
         label="Sous-Titre"
         required
@@ -20,7 +20,7 @@
       <v-col cols="12" md="12">
         <v-textarea
           v-model="texte"
-          :counter="400"
+          :counter="800"
           :rules="texteRules"
           solo
           name="input-7-4"
@@ -58,15 +58,15 @@ export default {
       soustitreRules: [
         v => !!v || "Le sous-titre est obligatoire !",
         v =>
-          (v && v.length <= 30) ||
-          "Le titre ne doit pas dépasser 30 caractères."
+          (v && v.length <= 45) ||
+          "Le titre ne doit pas dépasser 45 caractères."
       ],
       texte: "",
       texteRules: [
         v => !!v || "Le texte est obligatoire !",
         v =>
-          (v && v.length <= 400) ||
-          "Le titre ne doit pas dépasser 400 caractères."
+          (v && v.length <= 800) ||
+          "Le titre ne doit pas dépasser 800 caractères."
       ],
       file: "",
       checkbox: false
@@ -92,8 +92,6 @@ export default {
       formData.append("image", this.file);
       formData.append("event", JSON.stringify(event));
 
-      
-
       this.$store.dispatch("CreateOneEvent", formData).then(() => {
         this.reset();
       });
@@ -115,7 +113,11 @@ export default {
 }
 
 form {
-  width: 60vw;
+  width: min-content;
   margin-bottom: 30px;
+}
+
+input,button{
+  margin-bottom: 20px;
 }
 </style>

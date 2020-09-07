@@ -12,7 +12,7 @@
         <v-img
           class="white--text align-end"
           height="200px"
-          src="https://images.unsplash.com/photo-1547843337-c59a53c2c0cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80"
+          src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80"
         >
           <v-card-title>FRANCE</v-card-title>
         </v-img>
@@ -84,11 +84,11 @@ export default {
 @import "../scss/main.scss";
 
 .contact_items {
-  background-image: url(https://images.unsplash.com/photo-1584291527908-033f4d6542c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80);
+  /*background-image: url(https://images.unsplash.com/photo-1485841890310-6a055c88698a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  height: 100%;
+  height: 100%;*/
   display: flex;
   flex-direction: column;
   align-items: center;

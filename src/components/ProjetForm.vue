@@ -68,14 +68,13 @@ export default {
           (v && v.length <= 400) ||
           "Le titre ne doit pas dépasser 400 caractères."
       ],
-      file:"",
+      file: "",
       checkbox: false
     };
   },
 
   methods: {
-
-     loadFile() {
+    loadFile() {
       this.file = this.$refs.uploadBtn.files[0];
     },
 
@@ -84,14 +83,13 @@ export default {
       let projet = {
         title: this.titre,
         description: this.description,
-        date: this.date,
+        date: this.date
       };
 
       let formData = new FormData();
 
       formData.append("image", this.file);
       formData.append("projet", JSON.stringify(projet));
-
 
       this.$store.dispatch("CreateOneProjet", formData).then(() => {
         this.reset();
@@ -125,7 +123,11 @@ export default {
 }
 
 form {
-  width: 60vw;
+  width: min-content;
   margin-bottom: 30px;
+}
+
+input,button{
+  margin-bottom: 20px;
 }
 </style>

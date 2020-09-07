@@ -2,18 +2,20 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 Vue.prototype.$axios = axios;
-const baseURL = "https://jesse-api.herokuapp.com/";
+const baseURL = "http://localhost:8080/";
 
 //import authHeader from "../auth/auth-header";
 axios.defaults.withCredentials = true;
 
 Vue.use(Vuex);
 
+let user = JSON.parse(localStorage.getItem("user"));
+
 export default new Vuex.Store({
   state: {
     evenements: null,
     projets: null,
-    token: null,
+    accessToken: null,
     jeunesse: null,
     education: null,
     solidarite: null,
@@ -23,7 +25,7 @@ export default new Vuex.Store({
 
   getters: {
     autorise() {
-      return this.$store.token;
+      return this.$store.accessToken;
     },
 
     getjeunesse() {
@@ -42,7 +44,7 @@ export default new Vuex.Store({
     },
 
     SET_AUTH(state, data) {
-      state.token = data;
+      state.accessToken = data;
     },
 
     SET_GALERIE(state, data) {
@@ -106,9 +108,10 @@ export default new Vuex.Store({
 
       axios(config)
         .then(response => {
-          let userToken = response.data.token;
-          commit("SET_AUTH", userToken);
-          localStorage.setItem("user", JSON.stringify(userToken));
+          let accessToken = response.data.accessToken;
+          localStorage.setItem("user", JSON.stringify(accessToken));
+          commit("SET_AUTH", accessToken);
+          localStorage.setItem("user", JSON.stringify(accessToken));
         })
         .catch(error => {
           error;
@@ -132,9 +135,7 @@ export default new Vuex.Store({
       axios(config)
         .then(response => {
           let newdata = response.data;
-          console.log(newdata);
           commit("LOAD_GALERIE", newdata);
-          console.log(typeof newdata);
         })
         .catch(error => {
           error;
@@ -144,12 +145,14 @@ export default new Vuex.Store({
     // Ajouter image
     AddImage({ commit }, { formData, selection }) {
       let catégorie = selection;
+      let user = JSON.parse(localStorage.getItem("user"));
 
       const config = {
         method: "post",
         url: baseURL + "api/" + catégorie + "/",
         headers: {
-          "Content-Type": "multipart/form-data"
+          "Content-Type": "multipart/form-data",
+          Authorization: "Bearer " + user
         },
         data: formData
       };
@@ -185,7 +188,7 @@ export default new Vuex.Store({
         method: "post",
         url: baseURL + "api/events/",
         headers: {
-          "Content-Type": "multipart/form-data"
+          Authorization: "Bearer " + user
         },
         data: formData
       };
@@ -201,10 +204,12 @@ export default new Vuex.Store({
 
     // Supprimer un événement
     deleteOneEvent({ dispatch }, id) {
-    
       const config = {
         method: "delete",
         url: baseURL + "api/events/:",
+        headers: {
+          Authorization: "Bearer " + user
+        },
         data: {
           id: id
         }
@@ -234,12 +239,11 @@ export default new Vuex.Store({
 
     // Créer un projet
     CreateOneProjet({ dispatch }, formData) {
-
       const config = {
         method: "post",
         url: baseURL + "api/projets/",
         headers: {
-          "Content-Type": "multipart/form-data"
+          Authorization: "Bearer " + user
         },
         data: formData
       };
@@ -255,10 +259,12 @@ export default new Vuex.Store({
 
     // Supprimer un projet
     deleteOneProjet({ dispatch }, id) {
-
       const config = {
         method: "delete",
         url: baseURL + "api/projets/:",
+        headers: {
+          Authorization: "Bearer " + user
+        },
         data: {
           id: id
         }

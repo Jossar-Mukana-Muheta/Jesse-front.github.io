@@ -67,13 +67,13 @@
 
       <v-btn class="hidden-sm-and-down" text>
         <router-link to="/GaleriePage">
-                  Galerie
-                </router-link>
+          Galerie
+        </router-link>
       </v-btn>
       <v-btn class="hidden-sm-and-down" text>
         <router-link to="/Contact">
-                  Contact
-                </router-link>  
+          Contact
+        </router-link>
       </v-btn>
     </v-app-bar>
   </div>

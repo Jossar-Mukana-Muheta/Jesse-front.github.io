@@ -1,6 +1,6 @@
 <template>
   <v-toolbar id="tool" color="white" dark class="d-flex justify-center mb-6 ">
-    <v-toolbar-items class="flex-sm-wrap">
+    <v-toolbar-items class="flex-sm">
       <v-btn text color="black">
         <h2><span class="colored">J</span>eunesse</h2>
       </v-btn>

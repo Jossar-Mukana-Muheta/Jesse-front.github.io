@@ -1,23 +1,22 @@
 <template>
-<div class="container_page">
-  <Contact/>
-</div>
-  
+  <div class="container_page">
+    <Contact />
+  </div>
 </template>
 
 <script>
-import Contact from '@/components/Contact'
+import Contact from "@/components/Contact";
 
 export default {
-  name: 'ContactPage',
-  components:{
+  name: "ContactPage",
+  components: {
     Contact
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  .container_page{
-    margin-top: 30px;
-  }
+.container_page {
+  margin-top: 30px;
+}
 </style>

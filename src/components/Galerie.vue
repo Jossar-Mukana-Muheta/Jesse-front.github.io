@@ -6,67 +6,20 @@
       <Espace />
     </div>
     <div class="gallerie_items">
-      <v-row>
-        <v-col cols="12" sm="6" offset-sm="3">
-          <v-card>
-            <v-container fluid>
-              <v-row>
-                <div class="btn_plus">
-                  <v-btn
-                    class="mx-2 buttonPlus"
-                    fab
-                    dark
-                    color="orange"
-                    @click="enterGalerie"
-                  >
-                    <v-icon dark>mdi-plus</v-icon>
-                  </v-btn>
-                  <h3>Visitez</h3>
-                </div>
-                <v-col
-                  v-for="(image, itemImage) in $data.image"
-                  :key="itemImage"
-                  class="d-flex child-flex"
-                  cols="4"
-                >
-                  <v-card flat tile class="d-flex">
-                    <v-img
-                      :src="image.url"
-                      aspect-ratio="1"
-                      class="grey lighten-2"
-                    >
-                      <template v-slot:placeholder>
-                        <v-row
-                          class="fill-height ma-0"
-                          align="center"
-                          justify="center"
-                        >
-                          <v-progress-circular
-                            indeterminate
-                            color="grey lighten-5"
-                            >J</v-progress-circular
-                          >
-                        </v-row>
-                      </template>
-                    </v-img>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card>
-        </v-col>
-      </v-row>
+      <GalerieItems />
     </div>
   </div>
 </template>
 
 <script>
 import Espace from "@/components/Espace";
+import GalerieItems from "@/components/GalerieItems";
 
 export default {
   name: "Galerie",
   components: {
-    Espace
+    Espace,
+    GalerieItems
   },
   computed: {
     galerieStore() {
@@ -157,14 +110,11 @@ export default {
   display: flex;
   flex-direction: column;
 
-  button{
-
-    @include desktop{
+  button {
+    @include desktop {
       height: 70px !important;
       width: 70px !important;
     }
-
-    
   }
 
   @include desktop {

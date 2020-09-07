@@ -21,7 +21,7 @@
       ></v-text-field>
 
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Validate
+        Connexion
       </v-btn>
     </v-form>
   </div>

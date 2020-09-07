@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h1>Galerie photo</h1>
-    <h5>Découvrez nos différents albums :</h5>
-
     <div class="container_items">
       <div class="item" v-for="(card, x) in cardItems" :key="x">
         <v-card class="mx-auto" max-width="200" :color="card.color">
@@ -39,6 +36,8 @@
 
 <script>
 export default {
+  name: "GalerieItems",
+
   data() {
     return {
       selection: "Jeunesse",
