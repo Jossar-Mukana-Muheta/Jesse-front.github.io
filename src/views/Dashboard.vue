@@ -1,5 +1,13 @@
 <template>
   <div class="container_page">
+    <div class="deconnexion">
+      <v-btn
+                      small
+                      color="error"
+                      @click="logout()"
+                      >Deconnexion</v-btn
+                    >
+    </div>
     <div class="evenements">
       <h2>Gestion des Evenements</h2>
       <div class="evenements_content">
@@ -194,6 +202,11 @@ p {
 
 h2{
   margin: 50px;
+}
+
+.deconnexion{
+  margin-top: 20px;
+  text-align: right;
 }
 
 </style>
