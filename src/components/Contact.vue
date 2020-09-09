@@ -22,7 +22,7 @@
         >
 
         <v-card-text class="text--primary">
-          <div>1 Avenue Jean Jaurè</div>
+          <div>1 Avenue Jean Jaurès</div>
 
           <div>93430 Villetaneuse</div>
           <div>Centre socioculturel Clara Zetkin</div>

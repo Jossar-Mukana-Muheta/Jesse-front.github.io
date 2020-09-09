@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 Vue.prototype.$axios = axios;
-const baseURL = "http://52.47.80.181:3000/";
+const baseURL = "https://jossar-dev.fr/";
 
 //import authHeader from "../auth/auth-header";
 axios.defaults.withCredentials = true;
