@@ -52,17 +52,16 @@ export default {
         password: this.password
       };
 
-      this.$store.dispatch("login", userData)
-      .then( () => {
-        this.$router.push('/Dashboard')
-        .catch( error => {
-            console.log(error)
+      this.$store
+        .dispatch("login", userData)
+        .then(() => {
+          this.$router.push("/Dashboard").catch(error => {
+            console.log(error);
+          });
         })
-    })
-    .catch( e => {
-        console.log(e)
-    })
-      
+        .catch(e => {
+          console.log(e);
+        });
     }
   }
 };

@@ -127,7 +127,8 @@ form {
   margin-bottom: 30px;
 }
 
-input,button{
+input,
+button {
   margin-bottom: 20px;
 }
 </style>

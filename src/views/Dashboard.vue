@@ -1,12 +1,7 @@
 <template>
   <div class="container_page">
     <div class="deconnexion">
-      <v-btn
-                      small
-                      color="error"
-                      @click="logout()"
-                      >Deconnexion</v-btn
-                    >
+      <v-btn small color="error" @click="logout()">Deconnexion</v-btn>
     </div>
     <div class="evenements">
       <h2>Gestion des Evenements</h2>
@@ -17,10 +12,7 @@
         </div>
         <div class="liste">
           <h4>Liste de vos événements</h4>
-          <div class="text--primary" 
-          v-for="(item_event, i) in event"
-                :key="i"
-          >
+          <div class="text--primary" v-for="(item_event, i) in event" :key="i">
             <v-hover>
               <template v-slot="{ hover }">
                 <div
@@ -28,17 +20,17 @@
                   class="mx-auto pa-6 transition-swing card_item"
                 >
                   <h5 v-text="item_event.title"></h5>
-                  <p>{{item_event.soustitle}}</p>
-                  <p>{{item_event.texte}}</p>
+                  <p>{{ item_event.soustitle }}</p>
+                  <p>{{ item_event.texte }}</p>
                   <v-avatar class="ma-3" size="70" tile>
                     <v-img :src="item_event.imageUrl"></v-img>
                   </v-avatar>
-                   <v-btn
-                      small
-                      color="error"
-                      @click="deleteEvent(item_event._id)"
-                      >Supprimer</v-btn
-                    >
+                  <v-btn
+                    small
+                    color="error"
+                    @click="deleteEvent(item_event._id)"
+                    >Supprimer</v-btn
+                  >
                 </div>
               </template>
             </v-hover>
@@ -46,8 +38,8 @@
         </div>
       </div>
     </div>
-  
-      <div class="projets">
+
+    <div class="projets">
       <h2>Gestion des Projets</h2>
       <div class="projets_content">
         <div class="form">
@@ -56,10 +48,7 @@
         </div>
         <div class="liste">
           <h4>Liste de vos projets</h4>
-          <div class="text--primary" 
-          v-for="(item_event, i) in projet"
-                :key="i"
-          >
+          <div class="text--primary" v-for="(item_event, i) in projet" :key="i">
             <v-hover>
               <template v-slot="{ hover }">
                 <div
@@ -67,28 +56,27 @@
                   class="mx-auto pa-6 transition-swing card_item"
                 >
                   <h5 v-text="item_event.title"></h5>
-                  <p>{{item_event.soustitle}}</p>
-                  <p>{{item_event.texte}}</p>
+                  <p>{{ item_event.soustitle }}</p>
+                  <p>{{ item_event.texte }}</p>
                   <v-avatar class="ma-3" size="70" tile>
                     <v-img :src="item_event.imageUrl"></v-img>
                   </v-avatar>
-                   <v-btn
-                      small
-                      color="error"
-                      @click="deleteProjet(item_event._id)"
-                      >Supprimer</v-btn
-                    >
+                  <v-btn
+                    small
+                    color="error"
+                    @click="deleteProjet(item_event._id)"
+                    >Supprimer</v-btn
+                  >
                 </div>
               </template>
             </v-hover>
           </div>
         </div>
       </div>
-    
     </div>
     <div class="galerie">
       <h2>Gestion de la galerie Photo</h2>
-      <Select/>
+      <Select />
     </div>
   </div>
 </template>
@@ -110,8 +98,8 @@ export default {
     listeMenu: [
       { text: "Evenements", icon: "mdi-clock" },
       { text: "Projets", icon: "mdi-account" },
-      { text: "Galerie Photo", icon: "mdi-flag" },
-    ],
+      { text: "Galerie Photo", icon: "mdi-flag" }
+    ]
   }),
 
   methods: {
@@ -126,7 +114,7 @@ export default {
     logout: function() {
       this.$store.dispatch("logout");
       this.$router.push("/login");
-    },
+    }
   },
 
   computed: {
@@ -136,13 +124,13 @@ export default {
 
     projet() {
       return this.$store.state.projets;
-    },
+    }
   },
 
   created() {
     this.$store.dispatch("getAllEvent");
     this.$store.dispatch("getAllProjet");
-  },
+  }
 };
 </script>
 
@@ -153,16 +141,15 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-
-  
 }
 
-.evenements_content, .projets_content {
+.evenements_content,
+.projets_content {
   display: flex;
   justify-content: space-between;
   flex-direction: column-reverse;
 
-  @include desktop{
+  @include desktop {
     flex-direction: row;
   }
 
@@ -179,19 +166,19 @@ export default {
   }
 }
 
-.card_item{
+.card_item {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 10px;
 }
 
-h4{
+h4 {
   margin-bottom: 10px;
   text-decoration: underline;
 }
 
-.projets{
+.projets {
   background-color: $gray-apple;
 }
 
@@ -200,13 +187,12 @@ p {
   margin: 0px;
 }
 
-h2{
+h2 {
   margin: 50px;
 }
 
-.deconnexion{
+.deconnexion {
   margin-top: 20px;
   text-align: right;
 }
-
 </style>
