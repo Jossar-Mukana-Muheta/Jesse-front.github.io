@@ -75,7 +75,7 @@
                    <v-btn
                       small
                       color="error"
-                      @click="deleteEvent(item_event._id)"
+                      @click="deleteProjet(item_event._id)"
                       >Supprimer</v-btn
                     >
                 </div>

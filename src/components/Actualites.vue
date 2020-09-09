@@ -108,6 +108,7 @@ export default {
 
   @include desktop {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .cardItem {

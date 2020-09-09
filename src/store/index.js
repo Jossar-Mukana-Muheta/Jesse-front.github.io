@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 Vue.prototype.$axios = axios;
-const baseURL = "https://jossar-dev.fr/";
+const baseURL = "https://jesse-96e14.web.app/";
 
 //import authHeader from "../auth/auth-header";
 axios.defaults.withCredentials = true;
@@ -111,8 +111,6 @@ export default new Vuex.Store({
           let accessToken = response.data.accessToken;
           localStorage.setItem("user", JSON.stringify(accessToken));
           commit("SET_AUTH", accessToken);
-          localStorage.setItem("user", JSON.stringify(accessToken));
-          this.$router.push('Dashboard')
         })
         .catch(error => {
           error;

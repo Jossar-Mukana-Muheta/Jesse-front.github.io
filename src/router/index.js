@@ -71,7 +71,9 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
   // Check for protected route
-  if (requiresAuth && !authenticatedUser) next("Login");
+  if (requiresAuth && !authenticatedUser){
+    next("Login");
+  } 
   else {
     next();
   }
