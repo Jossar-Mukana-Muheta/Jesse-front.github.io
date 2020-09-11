@@ -56,7 +56,13 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "Dashboard" */ "../views/Dashboard.vue"),
-    meta: { requiresAuth: true }
+    beforeEnter: (to, from, next) => {
+      if (!user) {
+        next("/Login");
+      }
+
+      next();
+    }
   }
 ];
 
@@ -66,16 +72,16 @@ const router = new VueRouter({
   routes
 });
 
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   const authenticatedUser = user;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
   // Check for protected route
   if (requiresAuth && !authenticatedUser) {
-    next("Login");
+    next("/Login");
   } else {
     next();
   }
-});
+});*/
 
 export default router;

@@ -54,14 +54,7 @@ export default {
 
       this.$store
         .dispatch("login", userData)
-        .then(() => {
-          this.$router.push("/Dashboard").catch(error => {
-            console.log(error);
-          });
-        })
-        .catch(e => {
-          console.log(e);
-        });
+        .then(this.$router.push("/Dashboard"));
     }
   }
 };
@@ -82,5 +75,9 @@ form {
   @include desktop {
     width: 40vw !important ;
   }
+}
+
+button {
+  margin: 20px;
 }
 </style>
