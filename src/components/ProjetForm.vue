@@ -20,7 +20,7 @@
       <v-col cols="12" md="12">
         <v-textarea
           v-model="description"
-          :counter="400"
+          :counter="800"
           :rules="descriptionRules"
           solo
           name="input-7-4"
@@ -65,8 +65,8 @@ export default {
       descriptionRules: [
         v => !!v || "Le texte est obligatoire !",
         v =>
-          (v && v.length <= 400) ||
-          "Le titre ne doit pas dépasser 400 caractères."
+          (v && v.length <= 800) ||
+          "Le titre ne doit pas dépasser 800 caractères."
       ],
       file: "",
       checkbox: false
