@@ -54,7 +54,10 @@ export default {
 
       this.$store
         .dispatch("login", userData)
-        .then(this.$router.push("/Dashboard"));
+        .then(()=>{
+          this.$router.replace('/Dashboard')
+        })
+        .catch(error => error({}))
     }
   }
 };

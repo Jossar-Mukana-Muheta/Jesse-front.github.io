@@ -4,6 +4,7 @@
       <h2>Gallerie Photo</h2>
       <h5>Visionnez nos plus beaux souvenirs.</h5>
       <Espace />
+      
     </div>
     <div class="gallerie_items">
       <GalerieItems />
@@ -84,12 +85,7 @@ export default {
   margin-top: 30px;
 }
 .gallerie_items {
-  min-height: 400px;
-  background-image: url(https://images.unsplash.com/photo-1507643179773-3e975d7ac515?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
+  
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;

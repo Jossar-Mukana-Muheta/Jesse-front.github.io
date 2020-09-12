@@ -56,13 +56,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "Dashboard" */ "../views/Dashboard.vue"),
-    beforeEnter: (to, from, next) => {
-      if (!user) {
-        next("/Login");
-      }
-
-      next();
-    }
+    meta: { requiresAuth: true }
   }
 ];
 
@@ -78,10 +72,30 @@ const router = new VueRouter({
 
   // Check for protected route
   if (requiresAuth && !authenticatedUser) {
-    next("/Login");
+    next({
+      path: '/Login ' , 
+        query: { redirect : to.fullPath} 
+    });
   } else {
     next();
   }
 });*/
+
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!user) {
+      next({
+        path: '/Login'
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // make sure to always call next()!
+  }
+})
 
 export default router;

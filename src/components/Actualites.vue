@@ -4,45 +4,39 @@
     <h5>Découvrez ici nos dernière actualités</h5>
     <Espace />
     <div class="card_container">
-      <v-card
-        elevation="20"
-        class="mx-auto cardItem"
-        max-width="400"
-        v-for="(card, cr) in event"
+      <v-hover
+      v-for="(card, cr) in event"
         :key="cr"
       >
-        <v-img :src="card.imageUrl" height="400px"></v-img>
+        <template v-slot="{ hover }">
+      <v-card
+        
+        class="mx-auto cardItem transition-swing"
+        :class="`elevation-${hover ? 24 : 6}`"
+        max-width="400"
+        
+      >
+        <v-img :src="card.imageUrl" height="200px" class="white--text align-end">
 
-        <v-card-title>
+          <v-card-title>
           {{ card.title }}
         </v-card-title>
+        </v-img>
+
+        
 
         <v-card-subtitle>
           {{ card.soustitle }}
         </v-card-subtitle>
 
-        <v-card-actions>
-          <v-btn color="orange" text>
-            Details ...
-          </v-btn>
-
-          <v-spacer></v-spacer>
-
-          <v-btn icon @click="show = !show">
-            <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
-          </v-btn>
-        </v-card-actions>
-
-        <v-expand-transition>
-          <div v-show="show">
-            <v-divider></v-divider>
+        <v-divider></v-divider>
 
             <v-card-text>
               {{ card.texte }}
             </v-card-text>
-          </div>
-        </v-expand-transition>
       </v-card>
+      </template>
+      </v-hover>
     </div>
   </div>
 </template>
@@ -96,6 +90,8 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/main.scss";
 
+
+
 #actualites_div > div {
   margin-bottom: 30px;
 }
@@ -105,6 +101,8 @@ export default {
   flex-direction: column;
   align-content: space-around;
   justify-content: space-around;
+  margin-top: 30px;
+  margin-bottom: 100px;
 
   @include desktop {
     flex-direction: row;
