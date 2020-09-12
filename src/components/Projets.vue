@@ -2,7 +2,7 @@
   <div>
     <div>
       <h2>De Nombreux Défis Nous Attendent</h2>
-      <h5>Nos futurs projets</h5>
+      <h5>Nos projets</h5>
       <Espace />
     </div>
     <div id="projet_div">
@@ -47,7 +47,7 @@
 
         <v-divider class="mx-4"></v-divider>
 
-        <v-card-title>Date</v-card-title>
+        <v-card-title>Thématique</v-card-title>
 
         <v-card-text>
           <v-chip-group
@@ -74,24 +74,6 @@ export default {
   data: () => ({
     loading: false,
     selection: 1,
-    items: [
-      {
-        src:
-          "https://trello-attachments.s3.amazonaws.com/5ecaa717b0402111e8f281c9/720x960/b09eebcbacdfb4629eb2db7c5e38dbb8/WhatsApp_Image_2020-05-22_at_11.32.21-3.jpeg.jpg"
-      },
-      {
-        src:
-          "https://trello-attachments.s3.amazonaws.com/5ecaa717b0402111e8f281c9/960x720/02097c29d88bbd2eeec3757c0c29f9f1/WhatsApp_Image_2020-05-22_at_11.32.21-4.jpeg.jpg"
-      },
-      {
-        src:
-          "https://trello-attachments.s3.amazonaws.com/5ecaa717b0402111e8f281c9/960x720/124d486b582ef6fde6b0132e932d3ac4/WhatsApp_Image_2020-05-22_at_11.32.22-2.jpeg.jpg"
-      },
-      {
-        src:
-          "https://trello-attachments.s3.amazonaws.com/5ecaa717b0402111e8f281c9/960x720/7fe82fe165634145a22a77fde1e6e84b/WhatsApp_Image_2020-05-22_at_11.32.22-3.jpeg.jpg"
-      }
-    ]
   }),
 
   methods: {

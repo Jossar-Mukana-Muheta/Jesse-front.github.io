@@ -13,7 +13,7 @@
         v-model="date"
         :counter="30"
         :rules="dateRules"
-        label="Date(ex: Mai 2020)"
+        label="thème du projets"
         required
       ></v-text-field>
 
