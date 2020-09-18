@@ -73,7 +73,7 @@ export default {
   },
   data: () => ({
     loading: false,
-    selection: 1,
+    selection: 1
   }),
 
   methods: {

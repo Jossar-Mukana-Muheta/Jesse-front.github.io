@@ -7,7 +7,7 @@
         elevation="10"
         depressed
         color="orange"
-        href="https://www.cotizup.com/asso-jesse"
+        href="https://www.paypal.com/paypalme/AssoJesse"
         ><i class="fa fa-heart"> Je soutiens</i></v-btn
       >
     </div>
@@ -21,9 +21,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/main.scss";
+
 #don_section {
   background-image: url("../assets/hands.jpg");
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
   background-position: center;
   height: 400px;
@@ -33,6 +35,10 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @include desktop {
+    background-size: cover;
+  }
 }
 
 h2,

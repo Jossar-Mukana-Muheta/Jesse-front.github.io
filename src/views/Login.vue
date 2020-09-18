@@ -54,10 +54,10 @@ export default {
 
       this.$store
         .dispatch("login", userData)
-        .then(()=>{
-          this.$router.replace('/Dashboard')
+        .then(() => {
+          this.$router.replace("/Dashboard");
         })
-        .catch(error => error({}))
+        .catch(error => error({}));
     }
   }
 };

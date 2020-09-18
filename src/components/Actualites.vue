@@ -4,38 +4,34 @@
     <h5>Découvrez ici nos dernière actualités</h5>
     <Espace />
     <div class="card_container">
-      <v-hover
-      v-for="(card, cr) in event"
-        :key="cr"
-      >
+      <v-hover v-for="(card, cr) in event" :key="cr">
         <template v-slot="{ hover }">
-      <v-card
-        
-        class="mx-auto cardItem transition-swing"
-        :class="`elevation-${hover ? 24 : 6}`"
-        max-width="400"
-        
-      >
-        <v-img :src="card.imageUrl" height="200px" class="white--text align-end">
+          <v-card
+            class="mx-auto cardItem transition-swing"
+            :class="`elevation-${hover ? 24 : 6}`"
+            max-width="400"
+          >
+            <v-img
+              :src="card.imageUrl"
+              height="200px"
+              class="white--text align-end"
+            >
+              <v-card-title>
+                {{ card.title }}
+              </v-card-title>
+            </v-img>
 
-          <v-card-title>
-          {{ card.title }}
-        </v-card-title>
-        </v-img>
+            <v-card-subtitle>
+              {{ card.soustitle }}
+            </v-card-subtitle>
 
-        
-
-        <v-card-subtitle>
-          {{ card.soustitle }}
-        </v-card-subtitle>
-
-        <v-divider></v-divider>
+            <v-divider></v-divider>
 
             <v-card-text>
               {{ card.texte }}
             </v-card-text>
-      </v-card>
-      </template>
+          </v-card>
+        </template>
       </v-hover>
     </div>
   </div>
@@ -89,8 +85,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../scss/main.scss";
-
-
 
 #actualites_div > div {
   margin-bottom: 30px;

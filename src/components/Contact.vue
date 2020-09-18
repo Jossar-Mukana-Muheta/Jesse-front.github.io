@@ -63,7 +63,7 @@ export default {
         icon: "mdi-facebook",
         color: "indigo",
         lien:
-          '"https://www.facebook.com/jesseassociation/?hc_ref=ARRwk3uHtXCMfjF97wWlB6F-8GF8_WFpXC04m57-a2ZcT79Hc8FiI-NmBqrNNx4tAtc&fref=nf&__tn__=kC-R"'
+          "https://www.facebook.com/jesseassociation/?hc_ref=ARRwk3uHtXCMfjF97wWlB6F-8GF8_WFpXC04m57-a2ZcT79Hc8FiI-NmBqrNNx4tAtc&fref=nf&__tn__=kC-R"
       },
       {
         icon: "mdi-instagram",

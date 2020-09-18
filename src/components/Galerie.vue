@@ -4,7 +4,6 @@
       <h2>Gallerie Photo</h2>
       <h5>Visionnez nos plus beaux souvenirs.</h5>
       <Espace />
-      
     </div>
     <div class="gallerie_items">
       <GalerieItems />
@@ -28,46 +27,7 @@ export default {
     }
   },
   data: function() {
-    return {
-      image: [
-        {
-          url:
-            "https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1593113616828-6f22bca04804?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1492176273113-2d51f47b23b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1508779544523-dd1b27685be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1404&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1521220609214-a8552380c7a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1516510717845-1d1758eb0824?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        },
-        {
-          url:
-            "https://images.unsplash.com/photo-1522661067900-ab829854a57f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-        }
-      ]
-    };
+    return {};
   },
 
   methods: {
@@ -85,7 +45,6 @@ export default {
   margin-top: 30px;
 }
 .gallerie_items {
-  
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;

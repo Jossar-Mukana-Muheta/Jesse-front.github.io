@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2>Qui Sommes-nous</h2>
-    <h5>
+    <h3>
       Les <span class="orange-text">enfants</span> d'aujoud'hui, sont
       <span class="orange-text">l'espoir</span> de DEMAIN !
-    </h5>
+    </h3>
     <Espace />
+    <h2>Qui Sommes-nous</h2>
     <div id="text">
       <p>
         JESSE est une association à but non lucrative née d’une initiative
@@ -48,5 +48,9 @@ export default {
     margin: 70px;
     padding: 40px;
   }
+}
+
+h3 {
+  font-size: x-large;
 }
 </style>

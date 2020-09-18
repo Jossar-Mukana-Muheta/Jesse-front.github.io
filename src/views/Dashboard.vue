@@ -58,7 +58,7 @@
                   <h5 v-text="item_event.title"></h5>
                   <p>{{ item_event.soustitle }}</p>
                   <p>{{ item_event.texte }}</p>
-                  <p>{{item_event.description}}</p>
+                  <p>{{ item_event.description }}</p>
                   <v-avatar class="ma-3" size="70" tile>
                     <v-img :src="item_event.imageUrl"></v-img>
                   </v-avatar>

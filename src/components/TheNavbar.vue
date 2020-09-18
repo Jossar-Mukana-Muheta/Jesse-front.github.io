@@ -104,4 +104,8 @@ button {
 #app > div > div > header {
   z-index: 1;
 }
+
+a {
+  color: white !important;
+}
 </style>

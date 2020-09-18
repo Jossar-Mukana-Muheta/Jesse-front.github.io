@@ -3,23 +3,24 @@
     <div class="container_items">
       <v-hover class="item" v-for="(card, x) in cardItems" :key="x">
         <template v-slot="{ hover }">
-        <v-card class="mx-auto" max-width="200" :color="card.color" >
-          <v-btn
-            text
-            color="deep-purple accent-4"
-            @click="choiceGalerie(card.titre)"
-            :class="`elevation-${hover ? 24 : 6}`"
-            class="transition-swing"
-          >
-            <v-img
-              height="50"
-              width="50"
-              :src="require(`../assets/${card.src}`)"              
-            ></v-img>
-            <br />
-            {{ card.titre }}
-          </v-btn>
-        </v-card>
+          <v-card class="mx-auto" max-width="200" :color="card.color">
+            <v-btn
+              text
+              color="deep-purple accent-4"
+              @click="choiceGalerie(card.titre)"
+              :class="`elevation-${hover ? 24 : 6}`"
+              class="transition-swing"
+            >
+              <v-img
+                height="50"
+                width="50"
+                :src="require(`../assets/${card.src}`)"
+                contain
+              ></v-img>
+              <br />
+              {{ card.titre }}
+            </v-btn>
+          </v-card>
         </template>
       </v-hover>
     </div>
